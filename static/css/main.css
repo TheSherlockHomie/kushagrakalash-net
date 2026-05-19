@@ -1,14 +1,23 @@
 :root {
+  /* Atom One Light theme colors. Source:
+     schemes/Atom One Light.itermcolors from mbadolato/iTerm2-Color-Schemes. */
   color-scheme: light dark;
-  --background: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --brand: #c45500;
-  --nav: #111111;
-  --link: #0645ad;
-  --border: #dddddd;
-  --footer-border: #eeeeee;
-  --code-background: #f5f5f5;
+  --background: #f9f9f9;
+  --text: #2a2c33;
+  --muted: #2a2c33;
+  --brand: #2f5af3;
+  --nav: #2a2c33;
+  --link: #2f5af3;
+  --border: #bbbbbb;
+  --footer-border: #ededed;
+  --code-background: #ededed;
+  --code-text: #2a2c33;
+  --syntax-comment: #bbbbbb;
+  --syntax-keyword: #a00095;
+  --syntax-string: #3f953a;
+  --syntax-name: #2f5af3;
+  --syntax-number: #d2b67c;
+  --syntax-error: #de3e35;
   --font-body: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
   --font-heading: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -16,42 +25,67 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #111111;
-    --text: #eeeeee;
-    --muted: #aaaaaa;
-    --brand: #8ab4f8;
-    --nav: #eeeeee;
-    --link: #8ab4f8;
-    --border: #444444;
-    --footer-border: #2a2a2a;
-    --code-background: #1d1d1d;
+    /* Snazzy Soft theme colors. Source:
+       schemes/Snazzy Soft.itermcolors from mbadolato/iTerm2-Color-Schemes. */
+    --background: #282a36;
+    --text: #eff0eb;
+    --muted: #f1f1f0;
+    --brand: #57c7ff;
+    --nav: #eff0eb;
+    --link: #4babdb;
+    --border: #686868;
+    --footer-border: #686868;
+    --code-background: color-mix(in srgb, #000000 50%, #282a36);
+    --code-text: #eff0eb;
+    --syntax-comment: #686868;
+    --syntax-keyword: #ff6ac1;
+    --syntax-string: #5af78e;
+    --syntax-name: #57c7ff;
+    --syntax-number: #f3f99d;
+    --syntax-error: #ff5c57;
   }
 }
 
 html[data-theme="light"] {
+  /* Atom One Light theme colors. */
   color-scheme: light;
-  --background: #ffffff;
-  --text: #111111;
-  --muted: #666666;
-  --brand: #c45500;
-  --nav: #111111;
-  --link: #0645ad;
-  --border: #dddddd;
-  --footer-border: #eeeeee;
-  --code-background: #f5f5f5;
+  --background: #f9f9f9;
+  --text: #2a2c33;
+  --muted: #2a2c33;
+  --brand: #2f5af3;
+  --nav: #2a2c33;
+  --link: #2f5af3;
+  --border: #bbbbbb;
+  --footer-border: #ededed;
+  --code-background: #ededed;
+  --code-text: #2a2c33;
+  --syntax-comment: #bbbbbb;
+  --syntax-keyword: #a00095;
+  --syntax-string: #3f953a;
+  --syntax-name: #2f5af3;
+  --syntax-number: #d2b67c;
+  --syntax-error: #de3e35;
 }
 
 html[data-theme="dark"] {
+  /* Snazzy Soft theme colors. */
   color-scheme: dark;
-  --background: #111111;
-  --text: #eeeeee;
-  --muted: #aaaaaa;
-  --brand: #8ab4f8;
-  --nav: #eeeeee;
-  --link: #8ab4f8;
-  --border: #444444;
-  --footer-border: #2a2a2a;
-  --code-background: #1d1d1d;
+  --background: #282a36;
+  --text: #eff0eb;
+  --muted: #f1f1f0;
+  --brand: #57c7ff;
+  --nav: #eff0eb;
+  --link: #4babdb;
+  --border: #686868;
+  --footer-border: #686868;
+  --code-background: color-mix(in srgb, #000000 50%, #282a36);
+  --code-text: #eff0eb;
+  --syntax-comment: #686868;
+  --syntax-keyword: #ff6ac1;
+  --syntax-string: #5af78e;
+  --syntax-name: #57c7ff;
+  --syntax-number: #f3f99d;
+  --syntax-error: #ff5c57;
 }
 
 html {
@@ -97,6 +131,7 @@ hr {
 pre {
   background: var(--code-background);
   border: 1px solid var(--border);
+  color: var(--code-text);
   overflow-x: auto;
   padding: 1rem;
 }
@@ -109,6 +144,74 @@ code {
 :not(pre) > code {
   background: var(--code-background);
   padding: 0.1em 0.25em;
+}
+
+.chroma {
+  background: var(--code-background);
+  color: var(--code-text);
+}
+
+.chroma .c,
+.chroma .c1,
+.chroma .cm,
+.chroma .cp,
+.chroma .cs {
+  color: var(--syntax-comment);
+}
+
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt {
+  color: var(--syntax-keyword);
+}
+
+.chroma .s,
+.chroma .s1,
+.chroma .s2,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .sd,
+.chroma .se,
+.chroma .sh,
+.chroma .si,
+.chroma .sr,
+.chroma .ss {
+  color: var(--syntax-string);
+}
+
+.chroma .n,
+.chroma .na,
+.chroma .nb,
+.chroma .nc,
+.chroma .nd,
+.chroma .ne,
+.chroma .nf,
+.chroma .ni,
+.chroma .nl,
+.chroma .nn,
+.chroma .no,
+.chroma .nt,
+.chroma .nv,
+.chroma .nx {
+  color: var(--syntax-name);
+}
+
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .mo {
+  color: var(--syntax-number);
+}
+
+.chroma .err {
+  color: var(--syntax-error);
 }
 
 blockquote {
