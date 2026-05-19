@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ $description := .Description | default site.Params.description }}
+{{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}</title>
+<script>
+  try {
+    var theme = localStorage.getItem("theme");
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="/css/main.css">
+<script src="/js/theme.js" defer></script>

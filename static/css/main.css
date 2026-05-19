@@ -1,0 +1,272 @@
+:root {
+  color-scheme: light dark;
+  --background: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --brand: #c45500;
+  --nav: #111111;
+  --link: #0645ad;
+  --border: #dddddd;
+  --footer-border: #eeeeee;
+  --code-background: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111111;
+    --text: #eeeeee;
+    --muted: #aaaaaa;
+    --brand: #8ab4f8;
+    --nav: #eeeeee;
+    --link: #8ab4f8;
+    --border: #444444;
+    --footer-border: #2a2a2a;
+    --code-background: #1d1d1d;
+  }
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --brand: #c45500;
+  --nav: #111111;
+  --link: #0645ad;
+  --border: #dddddd;
+  --footer-border: #eeeeee;
+  --code-background: #f5f5f5;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111111;
+  --text: #eeeeee;
+  --muted: #aaaaaa;
+  --brand: #8ab4f8;
+  --nav: #eeeeee;
+  --link: #8ab4f8;
+  --border: #444444;
+  --footer-border: #2a2a2a;
+  --code-background: #1d1d1d;
+}
+
+html {
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 1.5rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+pre {
+  background: var(--code-background);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  background: var(--code-background);
+  padding: 0.1em 0.25em;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  color: var(--muted);
+  margin-left: 0;
+  padding-left: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+}
+
+figcaption,
+time,
+.site-footer {
+  color: var(--muted);
+}
+
+.skip-link {
+  background: var(--background);
+  left: 1rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: -4rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header,
+.site-footer {
+  margin: 2rem 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--footer-border);
+  display: flex;
+  font-size: 0.75rem;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  flex-direction: column;
+}
+
+.site-title {
+  color: var(--brand);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+nav a {
+  color: var(--nav);
+}
+
+nav a:hover {
+  color: var(--link);
+}
+
+.theme-toggle {
+  align-items: center;
+  background: var(--code-background);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.8rem;
+  gap: 0.4rem;
+  line-height: 1;
+  overflow: hidden;
+  padding: 0.35rem 0.6rem;
+  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--link);
+  color: var(--link);
+  transform: rotate(-2deg) translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: rotate(2deg) translateY(1px);
+}
+
+.theme-toggle-icon::before {
+  content: "☀";
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.theme-toggle[data-theme-label="Light"] .theme-toggle-icon::before {
+  content: "☾";
+}
+
+.theme-toggle:hover .theme-toggle-icon::before {
+  transform: rotate(25deg) scale(1.1);
+}
+
+@media (min-width: 44rem) {
+  .site-header {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+}
+
+.post-list {
+  list-style: none;
+  margin-top: 0.25rem;
+  padding-left: 0;
+}
+
+.post-list li {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 7rem 1fr;
+  margin: 0.25rem 0;
+  position: relative;
+  top: -0.08rem;
+}
+
+.post-list time {
+  font-size: 0.9rem;
+}
+
+h2 + .post-list {
+  margin-top: -0.25rem;
+}
+
+article + section {
+  margin-top: 3rem;
+}

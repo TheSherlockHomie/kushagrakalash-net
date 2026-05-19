@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <article>
+    {{ .Content }}
+  </article>
+
+  {{ $posts := where site.RegularPages "Section" "blog" }}
+  {{ with $posts }}
+    <section aria-labelledby="recent-posts">
+      <h2 id="recent-posts">Recent Writings</h2>
+      <ul class="post-list">
+        {{ range first 5 .ByDate.Reverse }}
+          <li>
+            {{ with .Date }}
+              <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>
+            {{ end }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+{{ end }}

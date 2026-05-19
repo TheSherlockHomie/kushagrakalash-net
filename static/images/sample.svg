@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Simple sample image</title>
+  <desc id="desc">A plain bordered rectangle with sample text.</desc>
+  <rect width="960" height="540" fill="#f7f7f7"/>
+  <rect x="24" y="24" width="912" height="492" fill="none" stroke="#222" stroke-width="4"/>
+  <text x="480" y="285" text-anchor="middle" font-family="system-ui, sans-serif" font-size="42" fill="#222">Sample image</text>
+</svg>

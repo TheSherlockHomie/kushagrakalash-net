@@ -2,3 +2,17 @@ baseURL = 'https://kushagrakalash.net/'
 locale = 'en-uk'
 title = 'Kushagra Kalash'
 enableRobotsTXT = true
+
+[params]
+description = 'Personal website of Kushagra Kalash.'
+
+[permalinks]
+blog = '/blog/:year/:month/:day/:slug/'
+
+[taxonomies]
+tag = 'tags'
+
+[markup]
+  [markup.highlight]
+  codeFences = true
+  noClasses = false
