@@ -281,7 +281,7 @@ time,
 .site-title {
   color: var(--brand);
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   font-weight: 700;
   line-height: 1.1;
 }
@@ -303,6 +303,7 @@ nav {
 
 nav a {
   color: var(--nav);
+  font-weight: 700;
 }
 
 nav a:hover {
@@ -393,7 +394,7 @@ nav a:hover {
   }
 
   .site-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -404,16 +405,16 @@ nav a:hover {
 }
 
 .post-list li {
+  align-items: baseline;
   display: grid;
   gap: 0.75rem;
   grid-template-columns: 7rem 1fr;
   margin: 0.25rem 0;
-  position: relative;
-  top: -0.08rem;
 }
 
 .post-list time {
   font-size: 0.9rem;
+  line-height: inherit;
 }
 
 h2 + .post-list {
