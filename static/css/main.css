@@ -257,6 +257,7 @@ time,
 }
 
 .site-footer {
+  align-items: center;
   border-top: 1px solid var(--footer-border);
   display: flex;
   font-size: 0.75rem;
@@ -310,43 +311,78 @@ nav a:hover {
 
 .theme-toggle {
   align-items: center;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  line-height: 1;
+  padding: 0;
+}
+
+.theme-toggle:focus {
+  outline: 0;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
+
+.theme-toggle-track {
+  align-items: center;
   background: var(--code-background);
   border: 1px solid var(--border);
   border-radius: 999px;
-  color: var(--text);
-  cursor: pointer;
-  display: inline-flex;
-  font: inherit;
-  font-size: 0.8rem;
-  gap: 0.4rem;
-  line-height: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 1.55rem;
   overflow: hidden;
-  padding: 0.35rem 0.6rem;
-  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
+  position: relative;
+  width: 3rem;
 }
 
-.theme-toggle:hover {
-  border-color: var(--link);
-  color: var(--link);
-  transform: rotate(-2deg) translateY(-1px);
-}
-
-.theme-toggle:active {
-  transform: rotate(2deg) translateY(1px);
-}
-
-.theme-toggle-icon::before {
-  content: "☀";
-  display: inline-block;
+.theme-toggle-thumb {
+  background: var(--brand);
+  border-radius: 999px;
+  height: 1.15rem;
+  left: 0.18rem;
+  position: absolute;
+  top: 0.18rem;
   transition: transform 200ms ease;
+  width: 1.15rem;
 }
 
-.theme-toggle[data-theme-label="Light"] .theme-toggle-icon::before {
-  content: "☾";
+.theme-toggle[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(1.45rem);
 }
 
-.theme-toggle:hover .theme-toggle-icon::before {
-  transform: rotate(25deg) scale(1.1);
+.theme-toggle-sun,
+.theme-toggle-moon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.theme-toggle-sun::before,
+.theme-toggle-moon::before {
+  background: var(--text);
+  content: "";
+  height: 0.85rem;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  width: 0.85rem;
+}
+
+.theme-toggle-sun::before {
+  mask-image: url("/icons/heroicons/sun-solid.svg");
+}
+
+.theme-toggle-moon::before {
+  mask-image: url("/icons/heroicons/moon-solid.svg");
 }
 
 @media (min-width: 44rem) {
